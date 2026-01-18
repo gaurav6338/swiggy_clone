@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+.overley{
+    background-color:rgba(0,0,0,0.5);
+}
+.image-overlay{
+   background-image: linear-gradient(to bottom,rgba(247, 237, 237, 0.089) 70%,rgba(0, 0, 0, 0.76));
+}
