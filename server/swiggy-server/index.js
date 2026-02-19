@@ -2,7 +2,7 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const cors = require('cors');
-
+const serverless = require("serverless-http");
 
 const app = express();
 app.use(express.static('dist'));
@@ -56,7 +56,9 @@ app.get('/top-restaurant-chains', (req, res) => {
 });
 
 
-// Start the server
-app.listen(port, () => {
-    console.log(`Server is listening at http://localhost:${port}`);
-});
+
+// app.listen(port, () => {
+//     console.log(`Server is listening at http://localhost:${port}`);
+// });
+
+module.exports = serverless(app);
