@@ -2,7 +2,11 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const cors = require('cors');
+<<<<<<< HEAD
 const serverless = require("serverless-http");
+=======
+
+>>>>>>> parent of 299ee52 (some unwanted files are removed)
 
 const app = express();
 app.use(express.static('dist'));
@@ -56,9 +60,16 @@ app.get('/top-restaurant-chains', (req, res) => {
 });
 
 
+<<<<<<< HEAD
 
 // app.listen(port, () => {
 //     console.log(`Server is listening at http://localhost:${port}`);
 // });
 
 module.exports = serverless(app);
+=======
+// Start the server
+app.listen(port, () => {
+    console.log(`Server is listening at http://localhost:${port}`);
+});
+>>>>>>> parent of 299ee52 (some unwanted files are removed)
