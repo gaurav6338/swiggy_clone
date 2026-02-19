@@ -3,7 +3,11 @@ const fs = require('fs');
 const path = require('path');
 const cors = require('cors');
 <<<<<<< HEAD
+<<<<<<< HEAD
 const serverless = require("serverless-http");
+=======
+
+>>>>>>> parent of 299ee52 (some unwanted files are removed)
 =======
 
 >>>>>>> parent of 299ee52 (some unwanted files are removed)
@@ -61,6 +65,7 @@ app.get('/top-restaurant-chains', (req, res) => {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 // app.listen(port, () => {
 //     console.log(`Server is listening at http://localhost:${port}`);
@@ -68,8 +73,13 @@ app.get('/top-restaurant-chains', (req, res) => {
 
 module.exports = serverless(app);
 =======
+=======
+>>>>>>> parent of 299ee52 (some unwanted files are removed)
 // Start the server
 app.listen(port, () => {
     console.log(`Server is listening at http://localhost:${port}`);
 });
+<<<<<<< HEAD
+>>>>>>> parent of 299ee52 (some unwanted files are removed)
+=======
 >>>>>>> parent of 299ee52 (some unwanted files are removed)
