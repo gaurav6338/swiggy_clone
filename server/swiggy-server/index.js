@@ -20,8 +20,9 @@ if (fs.existsSync(clientDistPath)) {
     app.use(express.static(clientDistPath));
 }
 
-app.use("/",()=>{
+app.use("/",(req,res)=>{
     console.log("API hit");
+    return res.json({message:"API hit"});
 })
 app.get('/categories', (req, res) => {
 
