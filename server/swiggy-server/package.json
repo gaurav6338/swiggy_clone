@@ -2,9 +2,12 @@
   "name": "server",
   "version": "1.0.0",
   "main": "index.js",
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
     "start": "node index.js",
-    "postinstall": "npm ci --prefix ../../swiggy-app --include=dev || (cd ../../swiggy-app && npm install) && npm run build --prefix ../../swiggy-app"
+    "postinstall": "cd ../../swiggy-app && npm install && npm run build"
   },
   "author": "",
   "license": "ISC",
