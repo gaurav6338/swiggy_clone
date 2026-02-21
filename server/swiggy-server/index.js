@@ -20,10 +20,6 @@ if (fs.existsSync(clientDistPath)) {
     app.use(express.static(clientDistPath));
 }
 
-app.use("/",(req,res)=>{
-    console.log("API hit");
-    return res.json({message:"API hit"});
-})
 app.get('/categories', (req, res) => {
 
     const filePath = path.join(__dirname, 'data/category.json');
@@ -68,10 +64,6 @@ app.get('/top-restaurant-chains', (req, res) => {
 
 
 
-app.listen(port, () => {
-    console.log(`Server is listening at http://localhost:${port}`);
-});
-
 // SPA fallback: serve index.html for any unknown GET route that accepts HTML
 app.use((req, res, next) => {
     if (req.method !== 'GET' || !req.headers.accept || !req.headers.accept.includes('text/html')) {
@@ -83,4 +75,8 @@ app.use((req, res, next) => {
     } else {
         next();
     }
+});
+
+app.listen(port, () => {
+    console.log(`Server is listening on port ${port}`);
 });
