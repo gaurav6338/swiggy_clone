@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-const clientDistPath = path.join(__dirname, '..', 'swiggy-app', 'dist');
+const clientDistPath = path.join(__dirname, '..', '..', 'swiggy-app', 'dist');
 if (fs.existsSync(clientDistPath)) {
     app.use(express.static(clientDistPath));
 }
@@ -63,11 +63,6 @@ app.get('/top-restaurant-chains', (req, res) => {
 
 
 
-app.listen(port, () => {
-    console.log(`Server is listening at http://localhost:${port}`);
-});
-
-// SPA fallback: serve index.html for any unknown GET route that accepts HTML
 app.use((req, res, next) => {
     if (req.method !== 'GET' || !req.headers.accept || !req.headers.accept.includes('text/html')) {
         return next();
@@ -78,4 +73,8 @@ app.use((req, res, next) => {
     } else {
         next();
     }
+});
+
+app.listen(port, '0.0.0.0', () => {
+    console.log(`Server is listening at http://localhost:${port}`);
 });
