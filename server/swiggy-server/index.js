@@ -13,9 +13,7 @@ app.use(cors());
 
 app.use(express.static(path.join(__dirname, 'public')));
 const clientDistPath = path.join(__dirname, '..', 'swiggy-app', 'dist');
-if (fs.existsSync(clientDistPath)) {
-    app.use(express.static(clientDistPath));
-}
+app.use(express.static(clientDistPath));
 
 app.get('/categories', (req, res) => {
 
@@ -59,6 +57,10 @@ app.get('/top-restaurant-chains', (req, res) => {
     });
 });
 
+app.get('/health', (req, res) => {
+    res.json({ status: 'ok' });
+});
+
 app.use((req, res, next) => {
     if (req.method !== 'GET' || !req.headers.accept || !req.headers.accept.includes('text/html')) {
         return next();
@@ -66,9 +68,9 @@ app.use((req, res, next) => {
     const indexHtml = path.join(clientDistPath, 'index.html');
     if (fs.existsSync(indexHtml)) {
         res.sendFile(indexHtml);
-    } else {
-        next();
+        return;
     }
+    res.send('<!doctype html><html><head><meta charset="utf-8"><title>App</title></head><body><h1>Server is running</h1></body></html>');
 });
 
 app.listen(port, () => {
